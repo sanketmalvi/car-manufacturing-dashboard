@@ -1,15 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ReactFlow from "reactflow";
+import "reactflow/dist/style.css";
+import { initialNodes, initialEdges } from "./mockData/nodeData";
+import nodeView from "./components/nodeView";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Car Manufacturing Dashboard</h1>
-    </>
+    <div className="h-screen w-screen">
+      <ReactFlow
+        nodes={initialNodes}
+        edges={initialEdges}
+        nodeTypes={{ custom: nodeView }}
+        fitView
+        attributionPosition="bottom-left"
+      />
+    </div>
   )
 }
 
